@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxufe.springboot.mapper.PoemsPoetMapper">
+    <insert id="addPoemsPoet" parameterType="PoemsPoet">
+        insert into t_poems_poet (id,uid,name,name_pinyin,name_zi,name_zi__pinyin,name_hao,
+        name_hao__pinyin,yiming,photo,gender,nativeplace,bitrhplace,birthday,deathday,
+        dynastyid,intro,intro_pinyin,intro_english,masterwork,masterwork_english,duty,
+        memo,llruserid,lrsj,shruserid,shsj,shxdsm)
+        values
+        (#{id},#{uid},#{name},#{name_pinyin},#{name_zi},#{name_zi__pinyin},#{name_hao},
+        #{name_hao__pinyin},#{yiming},#{photo},#{gender},#{nativeplace},#{bitrhplace},#{birthday},#{deathday},
+        #{dynastyid},#{intro},#{intro_pinyin},#{intro_english},#{masterwork},#{masterwork_english},#{duty},
+        #{memo},#{llruserid},#{lrsj},#{shruserid},#{shsj},#{shxdsm})
+    </insert>
+    <select id="queryAllPoemsPoet" resultType="PoemsPoet">
+        select * from t_poems_poet
+    </select>
+    <select id="queryPoemsPoemById" resultType="PoemsPoet" parameterType="int">
+        select * from t_poems_poet where t_poems_poet.id=#{id}
+    </select>
+    <update id="updatePoemsPoet" parameterType="PoemsPoet">
+        update t_poems_poet set name=#{name},name_pinyin=#{name_pinyin},name_zi=#{name_zi},name_zi__pinyin=#{name_zi__pinyin},name_hao=#{name_hao},
+        name_hao__pinyin=#{name_hao__pinyin},yiming=#{yiming},photo=#{photo},gender=#{gender},nativeplace=#{nativeplace},bitrhplace=#{bitrhplace},birthday=#{birthday},deathday=#{deathday},
+        dynastyid=#{dynastyid},intro=#{intro},intro_pinyin=#{intro_pinyin},intro_english=#{intro_english},masterwork=#{masterwork},masterwork_english=#{masterwork_english},duty=#{duty},
+        memo=#{memo},llruserid=#{llruserid},lrsj=#{lrsj},shruserid=#{shruserid},shsj=#{shsj},shxdsm=#{shxdsm} where t_poems_poet.id=#{id}
+    </update>
+    <delete id="deletePoemsPoet" parameterType="int">
+        delete from t_poems_poet where t_poems_poet.id=#{id}
+    </delete>
+</mapper>
